@@ -15,11 +15,10 @@ configDotenv({
 //2. middlewares
 app.use(Express.json());
 app.use(cookieParser());
-app.use(cors({
+app.use(({
   origin: ["http://localhost:5173",process.env.FRONTEND_URL],
-  methods: ["GET", "POST", "PUT", "DELETE"], 
-  Credential:true,
-  optionSuccessStatus:200
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+  credentials:true,
 }))
 
 app.use("/api/v1/users", userRouter);
