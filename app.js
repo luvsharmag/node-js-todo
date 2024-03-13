@@ -17,8 +17,8 @@ app.use(Express.json());
 app.use(cookieParser());
 app.use(cors({
   origin: ["http://localhost:5173",process.env.FRONTEND_URL],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE"], 
+  Credential:true,
   optionSuccessStatus:200
 }))
 
