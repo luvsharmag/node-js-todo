@@ -22,7 +22,7 @@ export const getMyProfile = async (req, res) => {
     },
   });
 };
-export const register = async (req, res) => {
+export const register = async (req, res,next) => {
   //1. get user inputs
   const { name, email, password } = req.body;
 
@@ -44,7 +44,7 @@ export const register = async (req, res) => {
   sendCookie(user, res, "user successfully created", 201);
 };
 
-export const login = async (req, res) => {
+export const login = async (req, res,next) => {
   const { email, password } = req.body;
 
   let findUser = await Users.findOne({ email }).select("+password");
@@ -60,7 +60,7 @@ export const login = async (req, res) => {
   }
   sendCookie(findUser, res, `welcome back, ${findUser.name}`, 200);
 };
-export const logout = (req,res)=>{
+export const logout = (req,res,next)=>{
   const {token} = req.cookies;
   
   if(!token){

@@ -34,7 +34,7 @@ export const getAllTask = async (req, res, next) => {
     next(error);
   }
 };
-export const updateTask = async (req, res) => {
+export const updateTask = async (req, res,next) => {
   try {
     const { taskId } = req.params;
     const task = await Tasks.findById(taskId);
